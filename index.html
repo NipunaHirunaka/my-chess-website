@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Chessboard.js CSS -->
+<link rel="stylesheet" href="https://unpkg.com/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css" />
+
+<!-- Chessboard.js JavaScript -->
+<script src="https://unpkg.com/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+
+<!-- Chess.js JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nipuna's Chess Arena</title>
   <style>
-    body {
+    body    {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
       text-align: center;
@@ -34,6 +43,33 @@
   </style>
 </head>
 <body>
+  <div id="board"></div>
+  <script>
+    <div id="board" style="width: 400px"></div>
+
+<script>
+  // Chess.js game object එක සාදන්න
+  const game = new Chess();
+
+  // Chessboard.js board object එක සාදන්න
+  const board = Chessboard('board', {
+    draggable: true,
+    position: 'start',
+    onDrop: function (source, target) {
+      const move = game.move({
+        from: source,
+        to: target,
+        promotion: 'q' // අවශ්‍ය නම් promote කිරීම
+      });
+
+      // නීතිවිරෝධී පියවරක් නම්, move එක අවලංගු කරන්න
+      if (move === null) return 'snapback';
+    },
+    onSnapEnd: function () {
+      board.position(game.fen());
+    }
+  });
+</script>
   <h1>Welcome to Nipuna's Chess Arena</h1>
   <div class="chessboard">
     <!-- Generate 64 squares -->
