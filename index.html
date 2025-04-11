@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nipuna's Chess Arena</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    .chessboard {
+      width: 320px;
+      height: 320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template: repeat(8, 1fr) / repeat(8, 1fr);
+    }
+    .chessboard div {
+      width: 40px;
+      height: 40px;
+    }
+    .white {
+      background-color: #fff;
+    }
+    .black {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Nipuna's Chess Arena</h1>
+  <div class="chessboard">
+    <!-- Generate 64 squares -->
+    <!-- This can be enhanced with JavaScript for interactivity -->
+    <!-- For simplicity, static squares are shown here -->
+    <!-- You can add chess pieces and game logic later -->
+    <!-- 8 rows x 8 columns -->
+    <!-- Alternate black and white squares -->
+    <!-- Row 1 -->
+    <div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div>
+    <div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div>
+    <!-- Repeat similar pattern for remaining rows -->
+    <!-- ... -->
+  </div>
+  <p>More features coming soon!</p>
+</body>
+</html>
